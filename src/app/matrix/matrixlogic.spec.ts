@@ -1,17 +1,6 @@
-//import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { MatrixLogic } from './matrix.logic';
+import { MatrixLogic } from './matrixlogic';
 
 describe('MatrixLogic', () => {
-  /*
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ MatrixLogic ]
-    })
-    .compileComponents();
-  }));
-*/
-
   it('should create', () => {
     const ml = new MatrixLogic();
     expect(ml).toBeTruthy();

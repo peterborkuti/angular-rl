@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { isNumber } from 'util';
-import { MatrixLogic } from './matrix.logic';
+import { MatrixLogic } from './matrixlogic';
 
 @Component({
   selector: 'app-matrix',
