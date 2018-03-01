@@ -1,0 +1,11 @@
+<h3>{{title}}</h3>
+<p>{{description}}</p>
+<table>
+  <tr *ngFor="let row of matrix.matrix; let r = index">
+    <td *ngFor="let col of row; let c = index">
+      <app-cell [content]="col" (click)="onClick(r, c)"></app-cell>
+    </td>
+  </tr>
+</table>
+
+
