@@ -7,11 +7,11 @@ import { MatrixLogic } from './matrixlogic';
   styleUrls: ['./matrix.component.css']
 })
 export class MatrixComponent implements OnInit {
-  @Input() n: number;
-  @Input() title: string;
-  @Input() description: string;
+  @Input() n = 10;
+  @Input() title = '';
+  @Input() description = '';
 
-  @Input() matrix: MatrixLogic;
+  @Input() matrix = new MatrixLogic();
 
   constructor() { }
 
