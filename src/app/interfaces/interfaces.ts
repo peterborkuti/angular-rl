@@ -1,13 +1,11 @@
-export interface Step {
-  readonly observation: any;
-  readonly reward: number;
-  readonly done: boolean;
-  readonly info: {};
+import { Direction } from '../gridworld/coord';
+
+export class Step {
+  constructor (readonly observation = [], readonly reward = -1, readonly done = false, readonly info = {}) {}
 }
 
 export interface  Environment {
-  readonly action_space: any[];
-  reset(): any;
-  step(action: any): Step;
-  render();
+  readonly action_space: Direction[];
+  reset(): Step;
+  step(action: Direction): Step;
 }

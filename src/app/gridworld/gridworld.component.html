@@ -1,3 +1,13 @@
 <p>
-  gridworld works!
+  <app-matrix
+    [n]=10
+    title="Grid World"
+    description="action_space: 0, 1, 2, 3 (directions), reward: -1 in normal cell, -10 when collide, +100 in goal"
+    [matrix]=matrixL
+  >
+  </app-matrix>
+  <button (click)="onClick(directions.UP)">UP</button>
+  <button (click)="onClick(directions.DOWN)">DOWN</button>
+  <button (click)="onClick(directions.LEFT)">LEFT</button>
+  <button (click)="onClick(directions.RIGHT)">RIGHT</button>
 </p>

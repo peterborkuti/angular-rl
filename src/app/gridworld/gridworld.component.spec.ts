@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GridworldComponent } from './gridworld.component';
+import { MatrixComponent } from '../matrix/matrix.component';
+import { CellComponent } from '../cell/cell.component';
 
 describe('GridworldComponent', () => {
   let component: GridworldComponent;
@@ -8,7 +10,7 @@ describe('GridworldComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GridworldComponent ]
+      declarations: [ CellComponent, MatrixComponent, GridworldComponent ]
     })
     .compileComponents();
   }));

@@ -1,32 +1,36 @@
+export enum Direction {
+  LEFT, RIGHT, UP, DOWN
+}
+
 export class Coord {
-  readonly LEFT = 0;
-  readonly RIGHT = 1;
-  readonly UP = 2;
-  readonly DOWN = 3;
-
-  readonly actions = [0, 1, 2, 3];
-
   constructor(readonly row: number, readonly col: number) {}
 
-  isGoodMove(matrix: any[][], emptyChar = ' ', r: number, c: number): boolean {
-    if ((r < 0) || (r >= matrix.length) || (c < 0) || (c >= matrix.length)) { return false; }
+  isInMatrix(matrix: any[][]): boolean {
+    return ((this.row >= 0) && (this.row < matrix.length) && (this.col >= 0) && (this.col < matrix[0].length));
+  }
 
-    return matrix[r][c] === emptyChar;
+  isGoodPlace(matrix: any[][], emptyChars = ' '): boolean {
+    return this.isInMatrix(matrix) && emptyChars.indexOf(matrix[this.row][this.col]) > -1;
+  }
+
+  getActionPlace(action: Direction): Coord {
+    let r = this.row;
+    let c = this.col;
+
+    if (action === Direction.LEFT) {c--; }
+    if (action === Direction.RIGHT) {c++; }
+    if (action === Direction.UP) {r--; }
+    if (action === Direction.DOWN) {r++; }
+
+    return new Coord(r, c);
   }
 
   isEqual(c: Coord): boolean {
     return Object.is(this.row, c.row) && Object.is(this.col, c.col);
   }
 
-  step(matrix: any[][], action: number, emptyChar = ' '): Coord {
-    let r = this.row;
-    let c = this.col;
-
-    if (action === this.LEFT) {c--; }
-    if (action === this.RIGHT) {c++; }
-    if (action === this.UP) {r--; }
-    if (action === this.DOWN) {r++; }
-
-    return (this.isGoodMove(matrix, emptyChar, r, c) ? new Coord(r, c) : this);
+  step(matrix: any[][], action: number, emptyChars = ' '): Coord {
+    const newPlace = this.getActionPlace(action);
+    return (newPlace.isGoodPlace(matrix, emptyChars) ? newPlace : this);
   }
 }

@@ -1,4 +1,5 @@
 import { isNumber } from 'util';
+
 export class MatrixLogic {
 
   matrix: any[][];

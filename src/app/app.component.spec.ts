@@ -2,12 +2,15 @@ import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { MatrixComponent } from './matrix/matrix.component';
 import { CellComponent } from './cell/cell.component';
+import { GridworldComponent } from './gridworld/gridworld.component';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        MatrixComponent,
         CellComponent,
+        MatrixComponent,
+        GridworldComponent,
         AppComponent
       ],
     }).compileComponents();

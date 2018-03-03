@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MatrixComponent } from './matrix.component';
 import { CellComponent } from '../cell/cell.component';
+import { MatrixLogic } from './matrixlogic';
 
 describe('MatrixComponent', () => {
   let component: MatrixComponent;
@@ -24,7 +25,4 @@ describe('MatrixComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should fill the matrix', () => {
-    expect(component).toBeTruthy();
-  });
 });
