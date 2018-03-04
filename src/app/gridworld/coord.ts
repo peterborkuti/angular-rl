@@ -5,6 +5,14 @@ export enum Direction {
 export class Coord {
   constructor(readonly row: number, readonly col: number) {}
 
+  static getCoord(index: number, n: number) {
+    return new Coord(Math.floor(index / n), index % n);
+  }
+
+  getIndex(n: number) {
+    return this.row * n + this.col;
+  }
+
   isInMatrix(matrix: any[][]): boolean {
     return ((this.row >= 0) && (this.row < matrix.length) && (this.col >= 0) && (this.col < matrix[0].length));
   }
@@ -32,5 +40,11 @@ export class Coord {
   step(matrix: any[][], action: number, emptyChars = ' '): Coord {
     const newPlace = this.getActionPlace(action);
     return (newPlace.isGoodPlace(matrix, emptyChars) ? newPlace : this);
+  }
+}
+
+export class IndexCoord extends Coord {
+  constructor(readonly index: number, readonly n: number) {
+    super(Math.floor(index / n), index % n);
   }
 }

@@ -1,0 +1,24 @@
+<p>
+  <app-matrix
+    [n]=10
+    title="Grid World"
+    description="action_space: 0, 1, 2, 3 (directions), reward: -1 in normal cell, -10 when collide, +100 in goal"
+    [matrix]=world.matrixL
+  >
+  </app-matrix>
+  <button (click)="onClick()">Agent, learn!</button>
+  <app-flatmatrix
+    [n]=10
+    title="state-action matrix"
+    description=""
+    [flatMatrix]=agent.state_action
+  >
+  </app-flatmatrix>
+  <app-flatmatrix
+  [n]=10
+  title="state-reward matrix"
+  description=""
+  [flatMatrix]=agent.state_reward
+>
+</app-flatmatrix>
+</p>

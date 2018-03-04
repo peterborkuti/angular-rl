@@ -1,0 +1,10 @@
+<h3>{{title}}</h3>
+<p>{{description}}</p>
+<table>
+  <tr *ngFor="let row of loopArray; let r = index">
+    <td *ngFor="let col of loopArray; let c = index" title="({{r}},{{c}}){{getCellIndex(r, c)}}">
+      <app-cell [content]="getCellByIndex(getCellIndex(r, c))"></app-cell>
+    </td>
+  </tr>
+</table>
+
